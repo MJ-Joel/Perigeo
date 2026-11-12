@@ -18,3 +18,13 @@ Accept: application/json
 GET {{Perigeo.Api_HostAddress}}/contactos/99
 Accept: application/json
 
+###
+
+POST {{Perigeo.Api_HostAddress}}/contactos/
+Content-Type: application/json
+
+{
+  "nombre": "Marta",
+  "telefono": "+34 600 000 115",
+  "orbita": "Habitual"
+}
