@@ -12,4 +12,6 @@ public class Contacto
     public string? Notas { get; set; }
     public bool EsFavorito { get; set; }
     public DateTime FechaCreacion { get; set; } = DateTime.UtcNow;
+    public ColorContacto Color { get; set; } = ColorContacto.Violeta;
+    public Orbita Orbita { get; set; } = Orbita.Lejana;
 }
