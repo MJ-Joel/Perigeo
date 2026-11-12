@@ -47,6 +47,7 @@ app.MapGet("/contactos/{id}", (int id) =>
 app.MapPost("/contactos", (Contacto contacto) =>
 {
     contacto.Id = contactos.Max(c => c.Id) + 1;
+    contacto.FechaCreacion = DateTime.UtcNow;
     contactos.Add(contacto);
 
     return Results.Created($"/contactos/{contacto.Id}", contacto);
