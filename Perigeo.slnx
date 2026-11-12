@@ -2,5 +2,6 @@
   <Folder Name="/Elementos de la solución/">
     <File Path="README.md" />
   </Folder>
+  <Project Path="Perigeo.Api/Perigeo.Api.csproj" />
   <Project Path="Perigeo.Core/Perigeo.Core.csproj" />
 </Solution>
