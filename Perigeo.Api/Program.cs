@@ -31,5 +31,18 @@ var contactos = new List<Contacto>
 
 app.MapGet("/contactos", () => contactos);
 
+app.MapGet("/contactos/{id}", (int id) =>
+{
+    var contacto = contactos.FirstOrDefault(c => c.Id == id);
+
+    if (contacto is null)
+    {
+        return Results.NotFound();
+    }
+
+    return Results.Ok(contacto);
+
+});
+
 app.Run();
 
