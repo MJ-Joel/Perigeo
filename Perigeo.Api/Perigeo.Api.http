@@ -5,6 +5,6 @@ Accept: application/json
 
 ###
 
-GET {{Perigeo.Api_HostAddress}}/weatherforecast/
+GET {{Perigeo.Api_HostAddress}}/contactos/
 Accept: application/json
 
