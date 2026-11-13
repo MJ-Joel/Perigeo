@@ -80,3 +80,7 @@ Content-Type: application/json
   "orbita": "Cercana",
   "esFavorito": true
 }
+
+  ###
+
+DELETE {{Perigeo.Api_HostAddress}}/contactos/2

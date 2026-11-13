@@ -24,9 +24,9 @@ app.UseHttpsRedirection();
 
 var contactos = new List<Contacto>
 {
-    new Contacto{ Id = 1, Nombre = "Carla", Apellidos = "Ruiz", Telefono = "+34 600 000 112"},
-    new Contacto{ Id = 2, Nombre = "Javier", Apellidos = "García", Telefono = "+34 600 000 113", Email = "javier.garcia@example.com", Orbita = Orbita.Cercana},
-    new Contacto{ Id = 3, Nombre = "Lucía", Apellidos = "Martínez", Telefono = "+34 600 000 114", Color = ColorContacto.Lima, EsFavorito = true}
+    new Contacto { Id = 1, Nombre = "Carla", Apellidos = "Ruiz", Telefono = "+34 600 000 112" },
+    new Contacto { Id = 2, Nombre = "Javier", Apellidos = "García", Telefono = "+34 600 000 113", Email = "javier.garcia@example.com", Orbita = Orbita.Cercana },
+    new Contacto { Id = 3, Nombre = "Lucía", Apellidos = "Martínez", Telefono = "+34 600 000 114", Color = ColorContacto.Lima, EsFavorito = true }
 };
 
 app.MapGet("/contactos", () => contactos);
@@ -41,7 +41,6 @@ app.MapGet("/contactos/{id}", (int id) =>
     }
 
     return Results.Ok(contacto);
-
 });
 
 app.MapPost("/contactos", (Contacto contacto) =>
@@ -74,6 +73,20 @@ app.MapPut("/contactos/{id}", (int id, Contacto datos) =>
     contacto.Orbita = datos.Orbita;
 
     return Results.Ok(contacto);
+});
+
+app.MapDelete("/contactos/{id}", (int id) =>
+{
+    var contacto = contactos.FirstOrDefault(c => c.Id == id);
+
+    if (contacto is null)
+    {
+        return Results.NotFound();
+    }
+
+    contactos.Remove(contacto);
+
+    return Results.NoContent();
 });
 
 app.Run();
