@@ -40,3 +40,43 @@ Content-Type: application/json
   "telefono": "123",
   "fechaCreacion": "2000-01-01T00:00:00Z"
 }
+
+###
+
+PUT {{Perigeo.Api_HostAddress}}/contactos/1
+Content-Type: application/json
+
+{
+  "id": 50,
+  "nombre": "Carla",
+  "apellidos": "Ruiz Santana",
+  "telefono": "+34 600 000 999",
+  "fechaCreacion": "2000-01-01T00:00:00Z",
+  "orbita": "Cercana",
+  "esFavorito": true
+}
+
+###
+
+PUT {{Perigeo.Api_HostAddress}}/contactos/3
+Content-Type: application/json
+
+{
+  "nombre": "Lucía",
+  "telefono": "+34 600 000 114"
+}
+
+  ###
+
+PUT {{Perigeo.Api_HostAddress}}/contactos/99
+Content-Type: application/json
+
+{
+  "id": 50,
+  "nombre": "Carla",
+  "apellidos": "Ruiz Santana",
+  "telefono": "+34 600 000 999",
+  "fechaCreacion": "2000-01-01T00:00:00Z",
+  "orbita": "Cercana",
+  "esFavorito": true
+}

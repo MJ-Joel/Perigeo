@@ -53,5 +53,28 @@ app.MapPost("/contactos", (Contacto contacto) =>
     return Results.Created($"/contactos/{contacto.Id}", contacto);
 });
 
+app.MapPut("/contactos/{id}", (int id, Contacto datos) =>
+{
+    var contacto = contactos.FirstOrDefault(c => c.Id == id);
+
+    if (contacto is null)
+    {
+        return Results.NotFound();
+    }
+
+    contacto.Nombre = datos.Nombre;
+    contacto.Apellidos = datos.Apellidos;
+    contacto.Telefono = datos.Telefono;
+    contacto.Email = datos.Email;
+    contacto.Empresa = datos.Empresa;
+    contacto.Cumpleanos = datos.Cumpleanos;
+    contacto.Notas = datos.Notas;
+    contacto.EsFavorito = datos.EsFavorito;
+    contacto.Color = datos.Color;
+    contacto.Orbita = datos.Orbita;
+
+    return Results.Ok(contacto);
+});
+
 app.Run();
 
