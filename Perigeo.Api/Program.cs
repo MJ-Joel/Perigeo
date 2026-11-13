@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Perigeo.Api.Data;
 using Perigeo.Core;
 using System.Text.Json.Serialization;
 
@@ -10,6 +12,11 @@ builder.Services.AddOpenApi();
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
+
+builder.Services.AddDbContext<PerigeoDbContext>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("Perigeo"));
 });
 
 var app = builder.Build();
